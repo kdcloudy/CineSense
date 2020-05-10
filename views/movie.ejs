@@ -1,0 +1,44 @@
+<%- include('partials/navigation2.ejs') %>
+<br>
+<br>
+<br>
+<br>
+<% var url = data["Poster"] %>
+<% if(url=='N/A'){ %>
+    <% url = 'https://lh3.googleusercontent.com/7ZVSaO1XKQe1-N6F6fQCMSQX1eveK8_e5MAN7lS9-NKkbKrcHNDK1zlaEmtn8s6AE1ZxtCrmzrNgqONp8CK1VYYLn_jcA9On-3qWSH751UyI5fJX4MHyzWLDeDhTLGhvkvnBWsQr0RJkaOg0eYq8Ncvn8_WHxJRp_mZmUrbLA9BMYpYVRCSFzg_iRQYMXb5xQ8ssfDMKlJ0pvAZ2VG8FTb1PGo4FdGEIYDHYuOn8xWxi4w1xViCeHD9nuuXcRf1IgTPWb0gx-SD1MGXjmClvNo_XwqmGCE7cwBCYh1a7HhuwLS0FcYlzvy4Bhsx6pZLJ8yHWieNlUjbzLbM2VTJnIbAEWCfmoj-tfnbTNMmMYEnJ-oALj377W2VplVTk0pZkt1OUERE4b1acScgLJLLzRzXjnlLANmbF14um0RdKEc92x__31jvqkxP9-rmxLnhlG_X19NuqOGy-jBExg0XxKqHcbZ-oJG6U4Kwdtag4aQ7DcQ-vQnDebHJEkKjYXMPLewiE1XDrU-1wxFt6p6H_TUnMTm3Rq1ZD7OuMRPJrJnLB9kr5SJgYUMFUiqS-ZUzBQ6RnbN3nrkAvln2uC9WD0eWa5JCfXhmOGtgrTNF2rU9KhuWdpHIxuG_fr3C8n9K1ydrkyIOyjjMq6GoN1UuEBkz_J1ZvLz1JEj2mqv2SvQ2YLIIBgpLOd-U2jnoHXA=w292-h437-no?authuser=1' %>
+<% } %>
+<div class = "jumbotron container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src='http://img.omdbapi.com/?i=<%=data["imdbID"]%>&h=800&apikey=5b7a0834' alt="" onerror="this.src='<%=url%>';" class="rounded hoverable img-fluid">
+            <% if(currentUser.favfilms.includes(data["imdbID"])){ %>
+                <form action='/favs/remove/<%= data["imdbID"]%>' method="POST">
+                    <button class="btn btn-info btn-red btn-block my-4" type="submit"><i class="fas fa-times mr-2" aria-hidden="true"></i>REMOVE FROM FAVORITES</button>
+                </form>
+          <%  } else { %>
+            <form action='/favs/add/<%= data["imdbID"]%>' method="POST">
+                <button class="btn btn-info btn-amber btn-block my-4" type="submit"><i class="fas fa-star mr-2" aria-hidden="true"></i>ADD TO FAVORITES</button>
+            </form>
+    <%      } %>
+            <form action='/movies/watch/<%= data["Title"]%>' method="GET">
+                <button class="btn btn-info btn blue-gradient btn-block my-4" type="submit"><i class="fas fa-film mr-2" aria-hidden="true"></i>WATCH NOW (BETA)</button>
+            </form>
+            
+        </div>
+        <div class="col-md-8 contents">
+            <h1><%= data["Title"] %> (<%=data["Year"] %>)</h1>
+            <ul class="list-group">
+                <p><%= data["Plot"] %></p>
+                <p><strong>Directed by:</strong> <%= data["Director"] %></p>
+                <p><strong>Written by:</strong> <%= data["Writer"] %></p>
+                <p><strong>Cast:</strong> <%= data["Actors"] %></p>
+                <p><strong>Runtime:</strong> <%= data["Runtime"] %></p>
+                <p><strong>Genre:</strong> <%= data["Genre"] %></p>
+                <p><strong>Release Date:</strong> <%= data["Released"] %></p>
+                <p><strong>Studio:</strong> <%= data["Production"] %></p>
+                <p><strong>Box Office:</strong> <%= data["BoxOffice"] %></p>
+            </ul>
+        </div>
+    </div>
+</div>
+

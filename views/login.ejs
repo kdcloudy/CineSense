@@ -1,0 +1,32 @@
+<%- include('partials/navigation.ejs') %>
+
+<section class="container-fluid bg">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3">
+            <form class="form-container" action="/login" method="POST">
+                    <p class="h4 mb-4 text-center"> <strong>Login</strong></p>
+                
+                    <input type="text" name="username" class="form-control mb-4" placeholder="Username" required>
+                
+                    <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" required>
+                
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                                <label class="custom-control-label sha384-ApNbgh9B" for="defaultLoginFormRemember">Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <button class="btn btn-info btn-amber btn-block my-4" type="submit">Log in</button>
+                
+                    <div class="text-center">
+                        <p>Not a member?
+                            <a href="/register">Register</a>
+                        </p>
+                    </div>
+                </form>
+        </section>
+    </section>  
+</section>

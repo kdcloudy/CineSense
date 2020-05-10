@@ -1,0 +1,43 @@
+.jumbotron
+{
+    background-color:#232A36;
+    margin-top: 30px;
+}
+.jumbotron h1
+{
+    color: white;
+    font-weight: bold;
+}
+
+
+body
+{
+    background-color: #232A36;
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-default
+{
+    opacity: 80% ;
+    background-color: #171C24
+}
+.thumbnail{
+
+    border: 0;
+    background: transparent;
+    margin-bottom: 25px;
+    }
+
+.form-container{
+    margin-top: 200px;
+}
+
+
+.contents{
+    padding-left: 100px
+}
+
+.badge{
+    height: autopx;
+}

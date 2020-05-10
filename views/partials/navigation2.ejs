@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>CineSense</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style 2.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/imax.css" rel="stylesheet">
+  <style type="text/css">
+    html,
+    
+    .body{
+      background-color: #232A36;
+    }
+    header,
+    .carousel {
+      height: 100vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+      .poster{
+      width: 480px;
+  }
+  
+  .contents{
+      padding-left: 20px;
+  }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #232A36 !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+      <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="/">
+          <img src="https://lh3.googleusercontent.com/F8CPjejHjBguNjcCnyS_gyhxb65g-0WE3AEenmTrS6oNUhoyPkZwt13ulK_GJtJ0yA9TlhZbkVv3qSBTF0dIpGO2_cgHOKvkzpPy6aJGuHSY6a7qMQSjKEuO35eHGPi6Y5LfvTyTVhApk-adJyRjL9iZwjUoYihs1S3pKy5FFNwrsppm-MMqNFNsiE4CEbGQuRCIBwHrN1eOIJAqUn-7hlZtCL2eBbOWH7rKvD5viwqJNzndOTKPF7zjl4EgaFa_9IvyVLl-73nFGmm3-ueeJkGown-5Mfz5j5suVcxJnP1DIl3Tw0qK-1gSIv2EWbkyEVKxOY5ANWh3DX9L42yzaurWbzbWLVAWQ3oUCKM9nTwYLVqLRrSx8FWEvSl5WXBcdUVS5InFs6dlxNMuaME9yDUBESETq94Sx_DTvZHPTUFhHVEh5dcYYuxImKOcPTkyFh5Y6yjJe-FSs3w1sePjtvjEFjx2U6pI-j7mGfPHRO4rcUfgO_v4pJn7UIxBwiFXXsqiMVT7mnPkn407DpK-UlYhz3bfCRe27nyCSSu6zQqVPr4cPO9RRGasS-IhIz4iWk12DJGIR5wQZwxtbH1SwLQhi7k4L5QKq11tq_hI4Z1xHe5g7cSolx6CpPfG63h7ttqlOOYmn9Y1ABZ_iN2h-89jIQqqXWOGzjaPFWjDKBcCuEOzEJdgCyoAagXO3g2rPxQrL08eK28m1yHepjs2yyhn70w0I2L49K_4GCmRrigbOoz9oqFQYdw=w820-h187-no" height="40" alt="">
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/search">Search</a>
+            </li>
+        
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+          
+            <% if(!currentUser){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login" target="_blank">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register" target="_blank">Sign Up</a>
+            </li>
+            <%   } else { %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                aria-labelledby="navbarDropdownMenuLink-333">
+                <a class="dropdown-item" href="#">Signed in as <%=currentUser.username %></a>
+                <a class="dropdown-item" href="/favs">Your Favourites</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </li>
+            <%     } %>
+          </ul>
+
+        </div>
+
+      </div>
+    </nav>
+
+      <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>

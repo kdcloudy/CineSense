@@ -1,0 +1,23 @@
+<%- include('partials/navigation.ejs') %>
+<br>
+<br>
+<br>
+
+<div class="jumbotron container">
+    <div class="row">
+        <div class="col-md-4">
+        <img src='http://img.omdbapi.com/?i=<%=data["results"][0]["external_ids"]["imdb"]["id"]%>&h=800&apikey=5b7a0834' class="rounded hoverable img-fluid">
+        </div>
+        <div class="col-md-8 contents">
+        <h1><%=data["results"][0]["name"]%></h1>
+        <p>Available to watch on the following platforms</p>
+        
+            <% data["results"][0]["locations"].forEach(function(movie){ %>
+                <a href='<%= movie["url"]%>' class="btn btn-info btn-white my-4 btn-block" >
+                <img src='<%= movie["icon"]%>'>
+                </img></a> 
+            <%})%>
+       
+</div>
+</div>
+</div>

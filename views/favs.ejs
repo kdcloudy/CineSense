@@ -1,0 +1,24 @@
+<%- include('partials/navigation.ejs') %>
+<div class ="jumbotron container">
+<h1>
+    Hey, <%=currentUser.username %>
+</h1>
+ HERE ARE YOUR FAVOURITE MOVIES
+ <br>
+ <br>
+ <br>
+
+<div id="movies" class="row">
+    <% currentUser.favfilms.forEach(function(movie){ %>
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <a href='movie/<%=movie%>' >
+            <img src='http://img.omdbapi.com/?i=<%=movie%>&h=800&apikey=5b7a0834' class="img-fluid rounded rgba-red-light hoverable" alt=rounded">
+            </a>
+        </div>
+     </div>
+     <% }) %> 	
+ </div>
+
+
+</div>

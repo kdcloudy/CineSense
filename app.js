@@ -7,7 +7,7 @@ var mongoose = require("mongoose"),
     passportLocalMongoose = require("passport-local-mongoose")
 
 //mongoose.connect("mongodb://localhost:27017/cinesense",{useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect("mongodb+srv://cinesenseweb:marlboro123@cluster0-tf8ri.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://CineDB:advance17@cinesense-kb9ud.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
 var app = express();
 var request= require("request");
@@ -200,3 +200,8 @@ if (port == null || port == "") {
   port = 3000;
 }
 app.listen(port);
+
+mongoose.connection.on('connected',() =>{
+    console.log("Connected to database!")
+
+})

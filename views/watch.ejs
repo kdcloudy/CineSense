@@ -2,11 +2,14 @@
 <br>
 <br>
 <br>
-
+<% var url = 'http://img.omdbapi.com/?i=<%=data["results"][0]["external_ids"]["imdb"]["id"]%>&h=800&apikey=5b7a0834' %>
+<% if(url=='N/A'){ %>
+    <% url = '/images/Notfound.png' %>
+<% } %>
 <div class="jumbotron container">
     <div class="row">
         <div class="col-md-4">
-        <img src='http://img.omdbapi.com/?i=<%=data["results"][0]["external_ids"]["imdb"]["id"]%>&h=800&apikey=5b7a0834' class="rounded hoverable img-fluid">
+        <img src= '<%=url%>' class="rounded hoverable img-fluid">
         </div>
         <div class="col-md-8 contents">
         <h1><%=data["results"][0]["name"]%></h1>

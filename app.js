@@ -127,7 +127,7 @@ app.get("/movie/:ID", isLoggedIn,function(req,res){
     })
 })
 
-//testing favfilms thingy
+//4)Testing favfilms thingy
 app.post("/favs/add/:ID", isLoggedIn, function(req, res){
     var movID = req.params.ID;
     var uname = req.user.username;
@@ -142,7 +142,8 @@ app.post("/favs/add/:ID", isLoggedIn, function(req, res){
 
 })
 
-app.post("/favs/remove/:ID", isLoggedIn, function(req, res){
+//5) Favourited films
+    app.post("/favs/remove/:ID", isLoggedIn, function(req, res){
     var movID = req.params.ID;
     var uname = req.user.username;
     User.updateOne({ username: uname }, { $pullAll: { favfilms:[movID] } }, function(err,result) {
@@ -161,7 +162,7 @@ app.get("/favs", isLoggedIn, function(req, res){
   res.render("favs")
 });
 
-
+//6) Watch feature
 app.get("/movies/watch/:name", function (req, res){
     var moviename = req.params.name;
     var options = {
@@ -181,11 +182,16 @@ app.get("/movies/watch/:name", function (req, res){
             res.render("watch", {data: watchinfo});
       });
 });
+//7)
+
+app.get("/about", function(req, res){
+    res.render("about");
+});
 
 //END OF ROUTES
 
 
-//4) MIDDLEWARES
+//MIDDLEWARES
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -199,7 +205,9 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-app.listen(port);
+app.listen(port, function(req, res){
+    console.log("Server has started!")
+});
 
 mongoose.connection.on('connected',() =>{
     console.log("Connected to database!")

@@ -41,3 +41,25 @@ body
 .badge{
     height: autopx;
 }
+
+.stackicons{
+    width: 200px;
+    margin-left:40px;
+}
+.stackicons1{
+    width: 300px
+}
+
+.mongo{
+    padding-top: 20px;
+}
+.utelly{
+    padding-top: 20px;
+    margin-left: 64px;
+}
+
+.heroku{
+    height: 150px;
+    margin-top: 20px;
+ 
+}

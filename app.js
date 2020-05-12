@@ -163,7 +163,7 @@ app.get("/favs", isLoggedIn, function(req, res){
 });
 
 //6) Watch feature
-app.get("/movies/watch/:name", function (req, res){
+app.get("/movie/watch/:name", function (req, res){
     var moviename = req.params.name;
     var options = {
         method: 'GET',
@@ -182,10 +182,31 @@ app.get("/movies/watch/:name", function (req, res){
             res.render("watch", {data: watchinfo});
       });
 });
-//7)
+//7) ABOUT PAGE
 
 app.get("/about", function(req, res){
     res.render("about");
+});
+
+//8) TECH SPECS (LONGSHOT)
+app.get("/movie/tech/:ID", function (req, res){
+    var movieID = req.params.ID;
+    //console.log(movieID)
+    var options = {
+        method: 'GET',
+        url: 'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/'+movieID,
+        headers: {
+          'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
+          'x-rapidapi-key': '1d4916ee62msha2ec3d649c2e787p1e61f3jsneb7bc93466de',
+          useQueryString: true
+        }
+      };
+      
+      request(options, function (error, response, body) {
+          if (error) throw new Error(error);
+            var techspecs = JSON.parse(body);
+            res.send(techspecs);
+      });
 });
 
 //END OF ROUTES

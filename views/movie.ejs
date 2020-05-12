@@ -20,8 +20,11 @@
                 <button class="btn btn-info btn-amber btn-block my-4" type="submit"><i class="fas fa-star mr-2" aria-hidden="true"></i>ADD TO FAVORITES</button>
             </form>
     <%      } %>
-            <form action='/movies/watch/<%= data["Title"]%>' method="GET">
+            <form action='/movie/watch/<%= data["Title"]%>' method="GET">
                 <button class="btn btn-info btn blue-gradient btn-block my-4" type="submit"><i class="fas fa-film mr-2" aria-hidden="true"></i>WATCH NOW (BETA)</button>
+            </form>
+            <form action='/movie/tech/<%= data["imdbID"]%>' method="GET">
+                <button class="btn btn-info btn red-gradient btn-block my-4" type="submit"><i class="fas fa-video mr-2" aria-hidden="true"></i>TECH SPECS</button>
             </form>
             
         </div>

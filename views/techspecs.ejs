@@ -1,0 +1,36 @@
+<%- include('partials/navigation.ejs') %>
+<br>
+<br>
+<br>
+
+<div class="jumbotron container">
+    <div class="row">
+        <div class="col-md-3">
+        <img src= 'http://img.omdbapi.com/?i=<%=data["id"]%>&h=800&apikey=5b7a0834' class="rounded hoverable img-fluid">
+  
+            
+    </div>
+        
+        
+        <div class="col-md-6 contents">
+        <h1><%=data["title"]%></h1>
+        <h2>Technical Specs</h2>
+        <% data["technical_specs"].forEach(function(movie){ %>
+           <p><strong><%=movie[0]%></strong><br>
+            <%-movie[1]%></p>
+        <%})%>
+        </div>
+
+        <div class="col-md-3 contents">
+            <% if(data["technical_specs"][1]["1"].includes("Dolby Atmos")){ %>
+                <img src="/images/dolbyatmos.png" class="img-fluid ">
+            <%}%>
+            <% if(data["technical_specs"][7]["1"].includes("Dolby Vision") || data["technical_specs"][6]["1"].includes("Dolby Vision")){ %>
+                <img src="/images/dolbyvision.png" class="img-fluid vision">
+            <%}%>
+            <% if(data["technical_specs"][3]["1"].includes("IMAX")){ %>
+                <img src="/images/imax.png" class="img-fluid imax vision">
+            <%}%>
+        </div>
+</div>
+</div>

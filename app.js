@@ -205,7 +205,8 @@ app.get("/movie/tech/:ID", function (req, res){
       request(options, function (error, response, body) {
           if (error) throw new Error(error);
             var techspecs = JSON.parse(body);
-            res.send(techspecs);
+            //res.send(techspecs);
+            res.render("techspecs", {data: techspecs});
       });
 });
 

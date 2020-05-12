@@ -12,11 +12,11 @@
         <h1><%=data["results"][0]["name"]%></h1>
         <p>Available to watch on the following platforms</p>
         
-            <% data["results"][0]["locations"].forEach(function(movie){ %>
-                <a href='<%= movie["url"]%>' class="btn btn-info btn-white my-4 btn-block" >
-                <img src='<%= movie["icon"]%>'>
-                </img></a> 
-            <%})%>
+        <% data["results"][0]["locations"].forEach(function(movie){ %>
+            <a href='<%= movie["url"]%>' class="btn btn-info btn-white my-4 btn-block" >
+            <img src='<%= movie["icon"]%>'>
+            </img></a> 
+        <%})%>
        
 </div>
 </div>

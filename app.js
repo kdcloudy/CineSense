@@ -7,7 +7,7 @@ var mongoose = require("mongoose"),
     LocalStrategy = require("passport-local"),
     passportLocalMongoose = require("passport-local-mongoose")
 
-//mongoose.connect("mongodb://localhost:27017/cinesense",{useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect("mongodb://localhost:27017/cinesense",{useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect("mongodb+srv://CineDB:advance17@cinesense-kb9ud.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
 var app = express();
@@ -142,8 +142,11 @@ app.post("/favs/add/:ID", isLoggedIn, function(req, res){
     User.updateOne({ username: uname }, { $push: { favfilms:[movID] } }, function(err,result) {
         if (err) {
           console.log(err);
+          req.flash("error", "There was a problem with the database!!");
+          res.redirect("/movie/"+movID)
         } else {
           console.log(result);
+          req.flash("success", "Movie Added Successfully!!");
           res.redirect("/movie/"+movID)
         }
      } );
@@ -157,8 +160,11 @@ app.post("/favs/add/:ID", isLoggedIn, function(req, res){
     User.updateOne({ username: uname }, { $pullAll: { favfilms:[movID] } }, function(err,result) {
         if (err) {
           console.log(err);
+          req.flash("error", "There was a problem with the database!!");
+          res.redirect("/movie/"+movID)
         } else {
           console.log(result);
+          req.flash("error", "Movie Removed!!");
           res.redirect("/movie/"+movID)
         }
      } );
@@ -186,8 +192,17 @@ app.get("/movie/watch/:name", function (req, res){
       request(options, function (error, response, body) {
           if (error) throw new Error(error);
             var watchinfo = JSON.parse(body)
+            console.log(watchinfo);
+            if(watchinfo && watchinfo.length)
+            {
+                res.render("watch", {data: watchinfo});
+            }
+            else{
+                res.render("err1");
+            }
             //res.send(body);
-            res.render("watch", {data: watchinfo});
+            
+            
       });
 });
 //7) ABOUT PAGE
@@ -226,6 +241,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash("error", "You need to Login First!!");
     res.redirect("/login")
 }
 

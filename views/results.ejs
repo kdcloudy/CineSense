@@ -7,6 +7,9 @@
 			<input type="text" class="form-control form-control-sm mr-3 w-75" id="searchText" name="searchText" placeholder="Search Movies...">
 			<i class="fas fa-search" aria-hidden="true"></i>
 	</form>
+	<% if(data["Response"]=="False"){ %>
+		<h1>No movie found, please try again. </h1>
+		<% 	} else { %>
 		<div id="movies" class="row">
 			<% data["Search"].forEach(function(movie){ %>
     		<div class="col-md-3">
@@ -24,4 +27,4 @@
          </div>
 	</div>
 </div>
-
+<% } %> 

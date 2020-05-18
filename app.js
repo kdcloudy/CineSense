@@ -193,13 +193,13 @@ app.get("/movie/watch/:name", function (req, res){
           if (error) throw new Error(error);
             var watchinfo = JSON.parse(body)
             console.log(watchinfo);
-            if(watchinfo && watchinfo.length)
-            {
+            // if(watchinfo && watchinfo.length)
+            // {
                 res.render("watch", {data: watchinfo});
-            }
-            else{
-                res.render("err1");
-            }
+            // }
+            // // else{
+            //     res.render("err1");
+          //  }
             //res.send(body);
             
             

@@ -62,7 +62,6 @@
     }
 
   </style>
-  <script data-ad-client="ca-pub-6874348372772485" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -129,6 +128,20 @@
 
       </div>
     </nav>
+    <% if( error && error.length > 0 ){ %>
+      <div class="jumbotron container">
+      <div class= "alert alert-danger" role= "alert">
+         <%= error %>
+      </div>
+    <% } %>
+    </div>
+    <% if( success && success.length > 0 ){ %>
+      <div class="jumbotron container">
+      <div class= "alert alert-success" role= "alert">
+        <%= success %>
+      </div>
+    <% } %> 
+  </div>
 
       <!-- SCRIPTS -->
   <!-- JQuery -->

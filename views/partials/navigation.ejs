@@ -65,12 +65,10 @@
     margin-top: initial;
  
 }
-
-
-
-
-
-
+.flash{
+  margin-top: 40%;
+  margin-bottom: 60%;
+}
 
 }
 
@@ -91,13 +89,8 @@
     }
 
   </style>
-  <script data-ad-client="ca-pub-6874348372772485" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
 <body>
-
-  <header>
-
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
       <div class="container">
@@ -155,12 +148,28 @@
             </li>
             <%     } %>
           </ul>
-
         </div>
-
       </div>
     </nav>
-
+    
+        <% if( error && error.length > 0 ){ %>
+          <div class="jumbotron container">
+          <div class= "alert alert-danger" role= "alert">
+             <%= error %>
+          </div>
+        <% } %>
+        </div>
+        <% if( success && success.length > 0 ){ %>
+          <div class="jumbotron container">
+          <div class= "alert alert-success" role= "alert">
+            <%= success %>
+          </div>
+        <% } %> 
+      </div>
+    
+    
+    
+  
       <!-- SCRIPTS -->
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -174,5 +183,4 @@
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
   </script>

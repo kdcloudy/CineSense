@@ -6,6 +6,8 @@ Movie data pulled through the OMdb API (key required)
 
 Watch (availability in streaming services like Netflix and Prime Video) data pulled through the uTelly API (key required)
 
+Final deployable build: http://cinesense.herokuapp.com
+
 Known Issues:
 - Watch data mismatch for certain titles
 - Posters missing for certain titles

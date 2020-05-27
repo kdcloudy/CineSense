@@ -10,4 +10,4 @@ Known Issues:
 - Watch data mismatch for certain titles
 - Posters missing for certain titles
 - Watch data returns results only for Indian region
-- No custom UI error pages or messages
+- ~No custom UI error pages or messages~

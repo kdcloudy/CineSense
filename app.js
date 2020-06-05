@@ -11,6 +11,7 @@ var mongoose = require("mongoose"),
 mongoose.connect("mongodb+srv://CineDB:advance17@cinesense-kb9ud.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
 var app = express();
+const API = 'ebce8643';
 var request= require("request");
 
 app.set("view engine", "ejs");
@@ -110,7 +111,7 @@ app.get("/search", isLoggedIn, function(req, res){
 app.get("/results", isLoggedIn,function(req,res){
     var search= req.query.searchText
     console.log(search, req.user.username);
-    request("http://www.omdbapi.com/?apikey=5b7a0834&s="+ search,function(error,response,body){
+    request("http://www.omdbapi.com/?apikey="+ API + "&s=" + search,function(error,response,body){
         if(!error && response.statusCode == 200)
         {
             var lol= JSON.parse(body);
@@ -125,7 +126,7 @@ app.get("/movie/:ID", isLoggedIn,function(req,res){
     var movID = req.params.ID;
     //res.send("movie page hai ye")
 
-    request("http://www.omdbapi.com/?i="+movID+"&apikey=5b7a0834",function(error,response,body){
+    request("http://www.omdbapi.com/?i="+movID+"&apikey="+API,function(error,response,body){
         if(!error && response.statusCode == 200)
         {
             var picture = JSON.parse(body);

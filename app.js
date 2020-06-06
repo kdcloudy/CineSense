@@ -11,7 +11,7 @@ var mongoose = require("mongoose"),
 mongoose.connect("mongodb+srv://CineDB:advance17@cinesense-kb9ud.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
 var app = express();
-const API = 'ebce8643';
+const API = 'INSERT API KEY';
 var request= require("request");
 
 app.set("view engine", "ejs");

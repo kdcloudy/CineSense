@@ -31,6 +31,7 @@ const APITech = 'INSERT API KEY';
 The APITech constant is for the Technical Specs page, which is another API from the unofficial IMDB API, issued from RapidAPI itself. This feature is redundant for the most part and can be replaced with an in-house web scraping functionality from IMDB.
 
 Finally, to connect to a database, you have two options:
+
 **1)Locally hosted database**
 For this, you need the latest version of MongoDB installed on your machine, and Mongoose correctly setup. 
 Insert the following code to create and connect to a locally hosted database:

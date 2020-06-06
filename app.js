@@ -7,12 +7,19 @@ var mongoose = require("mongoose"),
     LocalStrategy = require("passport-local"),
     passportLocalMongoose = require("passport-local-mongoose")
 
-// mongoose.connect("mongodb://localhost:27017/cinesense",{useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect("mongodb+srv://CineDB:advance17@cinesense-kb9ud.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true });
+    
+// mongoose.connect("mongodb://localhost:27017/cinesense",{useNewUrlParser: true, useUnifiedTopology: true }); -> FOR LOCALLY HOSTED DATABASE
+var dbaddress = 'INSERT MONGODB ATLAS' // REPLACE STRING WITH MONGODB CLUSTER ADDRESS, SET TO PUBLIC 0.0.0.0
+mongoose.connect(dbaddress,{useNewUrlParser: true, useUnifiedTopology: true });
+
+
 var app = express();
 var app = express();
-const API = 'INSERT API KEY';
-var request= require("request");
+
+const API = 'INSERT API KEY'
+const APIWatch = 'INSERT API KEY';
+const APITech = 'INSERT API KEY';;
+var request = require("request");
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/views'));
@@ -186,7 +193,7 @@ app.get("/movie/watch/:name", function (req, res){
         qs: {term: moviename, country: 'in'},
         headers: {
           'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
-          'x-rapidapi-key': '1d4916ee62msha2ec3d649c2e787p1e61f3jsneb7bc93466de'
+          'x-rapidapi-key': APIWatch
         }
       };
       
@@ -221,7 +228,7 @@ app.get("/movie/tech/:ID", function (req, res){
         url: 'https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/'+movieID,
         headers: {
           'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com',
-          'x-rapidapi-key': '1d4916ee62msha2ec3d649c2e787p1e61f3jsneb7bc93466de',
+          'x-rapidapi-key': APITech,
           useQueryString: true
         }
       };

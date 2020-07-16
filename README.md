@@ -1,4 +1,7 @@
 # CineSense
+<img src="FINALLL.png">
+
+
 The ongoing implementation of CineSense, an online movie database application built using node.js and user preferences are recorded in a custom database using MongoDB Atlas.
 Authentication handled using Passport.js
 
